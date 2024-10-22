@@ -18,7 +18,6 @@ export const actions = {
 		} catch (e) {
 			pbError(e)
 		}
-
 	},
 
 	register: async ({ locals, request }) => {
@@ -37,8 +36,6 @@ export const actions = {
 			password: form.password,
 			passwordConfirm: form.passwordConfirm,
 			username: form.name.toLowerCase().replace(/[^A-Za-z0-9]/g, ''),
-			role: 'user',
-			admin: false
 		}
 
 		dev && console.log('user', user)

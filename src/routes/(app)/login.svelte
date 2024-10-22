@@ -8,14 +8,14 @@
 
 <h2 class="card-title">Login</h2>
 <form method="POST" use:enhance action="?/login">
-    <fieldset class="grid gap-3 grid-auto-rows">
-        <div class="flex flex-row join">
-            <label for="username" class="w-20 rounded-r-full btn btn-primary join-item">Email</label>
+    <fieldset class="grid grid-auto-rows gap-3">
+        <div class="join flex flex-row">
+            <label for="username" class="btn btn-primary w-20 join-item rounded-r-full">Email</label>
             <input
                 autocomplete="email"
                 bind:value={username}
-                id="email"
-                name="email"
+                id="username"
+                name="username"
                 type="email"
                 required
                 class="input input-bordered join-item grow"
@@ -23,7 +23,7 @@
         </div>
         
         <div class="join">
-            <label for="password" class="w-20 rounded-r-full btn btn-primary join-item">Password</label>
+            <label for="password" class="btn btn-primary w-20 join-item rounded-r-full">Password</label>
             <input
                 autocomplete="on"
                 bind:value={password}
