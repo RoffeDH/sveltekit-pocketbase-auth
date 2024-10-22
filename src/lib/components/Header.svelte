@@ -7,10 +7,10 @@
 	let isAuthenticated = $derived($page.data.user?.id)
 </script>
 
-<header>
-	<div class="navbar bg-base-100">
+<header class="my-4">
+	<div class="navbar bg-neutral px-4">
 		<div class="navbar-start">
-			<a class="btn btn-ghost text-xl" href="/" >Minxes</a>
+			<a class="text-xl btn btn-ghost p-0" href="/" >Minxes</a>
 		</div>
 
 		<div class="navbar-center">
