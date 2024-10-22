@@ -5,6 +5,7 @@
 
 <article>
 	{#if user}
+		{@const user = $page.data.user}
 		<h1>User Profile</h1>
 		<ul>
 			{#each Object.keys(user) as u}

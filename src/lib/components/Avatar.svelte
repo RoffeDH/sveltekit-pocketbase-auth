@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { GravatarUrl } from '$lib/types'
-	import { getGravatarUrl } from '$lib'
+	import { getGravatarUrl, getOpenmojiUrl } from '$lib'
 
 	let { border = false, email, option = '404', round = false, size = '192' }: GravatarUrl = $props()
 

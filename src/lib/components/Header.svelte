@@ -2,13 +2,15 @@
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 
+	export { ...props } = $props();
+
 	let isAuthenticated = $derived($page.data.user?.id)
 </script>
 
-<header class="my-4">
-	<div class="navbar bg-neutral px-4">
+<header>
+	<div class="navbar bg-base-100">
 		<div class="navbar-start">
-			<a class="text-xl btn btn-ghost p-0" href="/" >Minxes</a>
+			<a class="btn btn-ghost text-xl" href="/" >Minxes</a>
 		</div>
 
 		<div class="navbar-center">

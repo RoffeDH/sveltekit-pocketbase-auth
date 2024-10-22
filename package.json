@@ -47,7 +47,6 @@
 	"type": "module",
 	"dependencies": {
 		"stripe": "^17.1.0",
-		"tailwind-merge": "^2.5.4",
 		"ts-node": "^10.9.2"
 	}
 }
