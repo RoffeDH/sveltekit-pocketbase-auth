@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 
-	export { ...props } = $props();
+	// export { ...props } = $props();
 
 	let isAuthenticated = $derived($page.data.user?.id)
 </script>
