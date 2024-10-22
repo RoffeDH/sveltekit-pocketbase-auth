@@ -4,9 +4,9 @@
 </script>
 
 <Header />
-<main class="flex-1 py-4">
+<main class="flex-1">
     {@render children()}
 </main>
-<footer class="flex-none p-10 footer bg-neutral text-neutral-content h-max">
+<footer class="footer bg-neutral text-neutral-content p-10 h-max flex-none">
     Footer
 </footer>
