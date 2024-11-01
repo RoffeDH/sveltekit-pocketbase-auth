@@ -53,3 +53,7 @@ export const isValidEmail = (email: string) => {
 export function stripHtml(str: string) {
 	return str.replace(/<\/?[^>]+(>|$)/g, '').trim()
 }
+
+export const serializeNonPOJOs = (value: object | null) => {
+	return structuredClone(value);
+}

@@ -45,6 +45,30 @@ export interface User {
 	verified: boolean
 }
 
+// export interface UserReview {
+// 	dickReview: DickRate
+// }
+
+export interface Rating {
+	report: JSON
+	owner: string
+	subject: string
+	description: string
+	aspect: "dick" | "pussy" | "ass" | "tits" | "mouth" | "body" | "face" | "looks" | "personality"
+}
+
+export interface DickRate {
+	length: number
+	girth: number
+	shape: number
+	hardness: number
+	taste: number
+	feel: number
+	stamina: number
+	enjoyment: number
+	fits: boolean
+}
+
 // https://github.com/pocketbase/js-sdk?tab=readme-ov-file#specify-typescript-definitions
 export interface TypedPocketBase extends PocketBase {
 	collection(idOrName: 'users'): RecordService<User>

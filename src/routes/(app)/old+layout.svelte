@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
     import '../../app.css';
     
     let { children, data } = $props();
@@ -7,10 +7,10 @@
 <main class="flex-1">
     {@render children()}
 </main>
-<footer class="footer bg-neutral text-neutral-content p-10 h-max flex-none">
+<footer class="flex-none p-10 footer bg-neutral text-neutral-content h-max">
     Footer
 </footer>
 
 <style>
     
-</style>
+</style> -->

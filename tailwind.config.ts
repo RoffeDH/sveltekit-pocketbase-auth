@@ -1,15 +1,18 @@
-import type { Config } from 'tailwindcss'
+// import type { Config } from 'tailwindcss'
 
-export default {
-	content: ["./index.html", "./src/**/*.{html,js,svelte,ts}"],
+// export default {
+// 	content: ["./index.html", "./src/**/*.{html,js,svelte,ts}"],
 
-	theme: {
-		extend: {},
-	},
+// 	theme: {
+// 		extend: {},
+// 	},
 
-	plugins: [require('daisyui')],
-	variants: {
-	  extend: {},
-	},
-	darkmode: 'class', // or 'media' or 'class'
-} as Config
+// 	plugins: [
+// 		require('daisyui'),
+// 		require('@tailwindcss/typography'),
+// 	],
+// 	variants: {
+// 	  extend: {},
+// 	},
+// 	darkmode: 'class', // or 'media' or 'class'
+// } as Config

@@ -5,10 +5,50 @@ import PocketBase from 'pocketbase'
 import { browser, dev } from '$app/environment'
 import { env } from '$env/dynamic/public'
 
+import { serializeNonPOJOs } from '$lib'
+
+export async function getUserByUsername(username: string) {
+	let response
+
+	try {
+        const res = await pb.collection('users').getFirstListItem('username="' + username + '"')
+        response = serializeNonPOJOs(res);
+    } catch(err: any) {
+        response = err
+    } finally {
+        if(response.status == 404) {
+            response = {
+                status: 404,
+                message: "Couldn't find user"
+            }
+        }
+
+		return response
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const getAvatarUrl = (user: User) => {
+	// COLLECTION_ID_OR_NAME/RECORD_ID/FILENAME
 	// FIXME: Use pb.getFileUrl()
-	const base = `${env.PUBLIC_POCKETBASE_URL}/api/files/systemprofiles0`
-	return user ? `${base}/${user.id}/${user.avatar}` : null
+
+	// const base = `${env.PUBLIC_POCKETBASE_URL}/api/files/systemprofiles0`
+	// return user ? `${base}/${user.id}/${user.avatar}` : null
+
+	return user ? pb.files.getUrl(user, user.avatar, {'thumb': '250x250'}) : null
 }
 
 export const pbError = (e: unknown) => {
