@@ -10,6 +10,13 @@ const config = {
 	kit: {
 		adapter: adapter(),
 	},
+	vitePlugin: {
+		dynamicCompileOptions({ filename }) {
+			if (filename.includes('node_modules')) {
+				return { runes: undefined }; // or false, check what works
+			}
+		}
+	},
 }
 
 export default config

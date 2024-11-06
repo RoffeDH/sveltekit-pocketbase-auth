@@ -4,7 +4,9 @@
 	import { twMerge } from 'tailwind-merge';
 	import { UserMenu } from './index';
 
-	let { class: classes = '', ...props } = $props();
+	let { class: classes = '', ...props }: { class: string } = $props();
+
+
 
 	let isAuthenticated = $derived($page.data.user?.id)
 </script>

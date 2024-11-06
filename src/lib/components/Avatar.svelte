@@ -1,22 +1,42 @@
 <script lang="ts">
 	import type { User } from "$lib/types"
-	import { getAvatarUrl } from "$lib/pocketbase.svelte"
+	import type { Snippet } from "svelte"
+
+	import { getMediaURL } from "$lib/pocketbase.svelte"
 	import { twMerge } from "tailwind-merge"
+    import { PersonOutline } from 'svelte-ionicons'
+	import { Image } from '$lib/components/image'
 
-	let { class: classes = null, user, alt = 'User avatar', ...props}: { class: string | null, user: User, alt: string } = $props()
+	let { src, id, alt = 'User avatar', class:classes, shape = 'round', children, ...props }: { src?: string, id?: string, alt?: string, class?: string, shape?: 'round' | 'rounded' | 'square', children?: Snippet } = $props()
 
-	function handleError() {
-		
+	if(!src && id) {
+		getMediaURL(id).then((val: string) => {
+			src = val
+		});
 	}
+
+    
+    let shapeStyle = $state('avatar')
+
+    if(shape == 'round')
+        shapeStyle = ''
+    else if(shape += 'rounded')
+        shapeStyle += ''
+    else
+        shapeStyle += ''
+
 </script>
 
-<div class={twMerge('avatar', classes)}>
-	<div class="rounded-full">
-		<img
-			{...props}
-			{alt}
-			onerror={handleError}
-			src={getAvatarUrl(user)}
-		/>	
-	</div>	
-</div>
+<figure>
+    {#if src && src.length > 0}
+		<Image {src} {alt} class={twMerge(classes, shapeStyle)} {...props} />
+    {:else}
+        <PersonOutline class={twMerge(classes, shapeStyle)} />
+    {/if}
+    
+    {#if children}
+        <figcaption>
+            {@render children()}
+        </figcaption>
+    {/if}
+</figure>

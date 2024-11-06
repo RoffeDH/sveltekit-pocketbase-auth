@@ -14,8 +14,4 @@
 		text-align: center;
 		font-size: smaller;
 	}
-	div {
-		margin-inline: auto;
-		max-width: max(100vw - 5rem, 66ch);
-	}
 </style>

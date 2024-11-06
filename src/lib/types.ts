@@ -1,27 +1,6 @@
 import PocketBase, { RecordService } from 'pocketbase'
 export type { AuthModel, ClientResponseError } from 'pocketbase'
 
-export interface Adam {
-	id: string
-	collectionId: string
-	collectionName: string
-	created: string
-	updated: string
-	type: string
-	format: string
-	status: string
-	content: string
-	aside: string
-	author: string
-	tags: string[]
-	title: string
-	location: string
-	category: string[]
-	photos: string[]
-	actualCreated: string
-	views: number
-}
-
 export interface GravatarUrl {
 	border?: boolean
 	email: string
@@ -45,9 +24,14 @@ export interface User {
 	verified: boolean
 }
 
-// export interface UserReview {
-// 	dickReview: DickRate
-// }
+export interface Media {
+	id: string
+	created: Date
+	updated: Date
+	alt: string
+	file: string
+	owner: string
+}
 
 export interface Rating {
 	report: JSON
@@ -71,7 +55,7 @@ export interface DickRate {
 
 // https://github.com/pocketbase/js-sdk?tab=readme-ov-file#specify-typescript-definitions
 export interface TypedPocketBase extends PocketBase {
-	collection(idOrName: 'users'): RecordService<User>
-	// collection(idOrName: 'adam'): RecordService<Adam>
-	// collection(idOrName: 'quotes_public'): RecordService<Adam>
+	collection(idOrName: 'users'): RecordService<User>,
+	collection(idOrName: 'media'): RecordService<Media>,
+	collection(idOrName: 'ratings'): RecordService<Rating>
 }
