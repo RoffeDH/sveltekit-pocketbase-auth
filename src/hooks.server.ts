@@ -1,7 +1,7 @@
 import type { TypedPocketBase } from '$lib/types'
-import type { Handle } from '@sveltejs/kit'
+import { redirect, type Handle } from '@sveltejs/kit'
 
-import { dev } from '$app/environment'
+import { browser, dev } from '$app/environment'
 import { env } from '$env/dynamic/public'
 import { Security } from '$lib/pocketbase.svelte'
 import PocketBase from 'pocketbase'
@@ -10,11 +10,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.pb = new PocketBase(env.PUBLIC_POCKETBASE_URL) as TypedPocketBase
 	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '')
 
-	// dev && console.log('hooks.server: ', locals.pb.authStore.model);
+	// dev && console.log('hooks.server: ', event.locals.pb.authStore.model);
 	try {
 		if (event.locals.pb.authStore.isValid) {
-			await event.locals.pb.collection('users').authRefresh()
-			event.locals.user = event.locals.pb.authStore.model
+			await event.locals.pb.collection('users').authRefresh();
+			event.locals.user = structuredClone(event.locals.pb.authStore.model);
 		}
 	} catch (err) {
 		console.error('Error during PocketBase .authRefresh():', err) // Log the error

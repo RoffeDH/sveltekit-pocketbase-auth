@@ -3,7 +3,7 @@
 	import { page } from '$app/stores'
 	import { getOpenmojiUrl } from '$lib'
 
-	$inspect({ browser })
+	// $inspect({ browser })
 </script>
 
 <h1>

@@ -1,5 +1,5 @@
 {
-	"name": "play.adam.nz.git",
+	"name": "blueprint",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -10,12 +10,12 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
+		"format": "prettier --write .",§§
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"db": "./db/db.sh"
 	},
 	"devDependencies": {
-		"@picocss/pico": "^2.0.6",
 		"@playwright/test": "^1.47.2",
 		"@sveltejs/adapter-auto": "^3.2.5",
 		"@sveltejs/kit": "^2.6.1",

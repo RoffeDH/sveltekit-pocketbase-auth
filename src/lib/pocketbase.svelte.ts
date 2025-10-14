@@ -45,7 +45,7 @@ export class Security {
 
 	isAuthenticated() {
 		if (!this.user) {
-			// redirect(307, '/sign/in')
+			redirect(307, '/sign/in')
 			error(401, 'You are not signed in.')
 		}
 		if (!this.user?.verified) {
